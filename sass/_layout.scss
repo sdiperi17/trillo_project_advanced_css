@@ -29,10 +29,17 @@
     background-color: var(--color-grey-dark-1);
     // flex-grow, flex-shrink, flex-basis
     flex: 0 0 18%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .hotel-view {
     background-color: orangered;
     // by using flex 1, we are saying that element should grow as much as it can
     flex: 1;
+
+    //Test
+    height: 80rem;
 }
