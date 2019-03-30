@@ -14,7 +14,7 @@
     font-size: 1.4rem;
     height: 7rem;
     background-color: #fff;
-    border-bottom: 1px solid var(--color-grey-light-2);
+    border-bottom: var(--line);
 
     display: flex;
     justify-content: space-between;
@@ -38,7 +38,27 @@
 .hotel-view {
     // by using flex 1, we are saying that element should grow as much as it can
     flex: 1;
+}
 
-    //Test
-    height: 80rem;
+.detail {
+    display: flex;
+    padding: 4.5rem;
+    background-color: var(--line);
+}
+
+.description {
+    font-size: 1.4rem;
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    // 0 0  grow and shrink properties,
+    //flex-basis: 60% to make an element to take 60 percent of the available width
+    flex: 0 0 60%;
+    margin-right: 4.5rem;
+}
+
+.user-reviews {
+    background-color: yellowgreen;
+    // for an element to occupy the remaining space by setting flex to one.
+    flex: 1;
 }
