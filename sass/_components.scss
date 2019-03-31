@@ -130,11 +130,25 @@
     list-style: none;
     margin-top: 3.5rem;
 
+    @media only screen and (max-width: $bp-medium) {
+        display: flex;
+        margin: 0;
+    }
+
     &__item {
         position: relative;
 
         &:not(:last-child) {
             margin-bottom: 0.5rem;
+
+            @media only screen and (max-width: $bp-medium) {
+                margin-bottom: 0;
+            }
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            // all flex items will grow as much as they can
+            flex: 1;
         }
     }
 
@@ -182,6 +196,11 @@
         position: relative;
         // we set z-index higher to show link on top of ::before pseudo element
         z-index: 10;
+
+        @media only screen and (max-width: $bp-medium) {
+            justify-content: center;
+            padding: 2rem;
+        }
     }
 
     &__icon {
@@ -200,6 +219,10 @@
     color: var(--color-grey-light-4);
     text-align: center;
     padding: 2.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        display: none;
+    }
 }
 
 ///////////////////////////
@@ -387,6 +410,7 @@
     }
 
     &__friends {
+        display: flex;
     }
 
     &__photo {
@@ -399,7 +423,7 @@
         border: 3px solid #fff;
 
         &:not(:last-child) {
-            margin-right: -1.5rem;
+            margin-right: -2rem;
         }
     }
 }
@@ -413,6 +437,11 @@
     margin-bottom: 3.5rem;
     position: relative;
     overflow: hidden;
+
+    @media only screen and (max-width: $bp-large) {
+        padding: 2rem;
+        margin-right: 3rem;
+    }
 
     &__text {
         margin-bottom: 3rem;
@@ -475,6 +504,10 @@
     flex: 0 0 100%;
     padding: 3.5rem 0;
     text-align: center;
+
+    @media only screen and (max-width: $bp-large) {
+        padding: 2.5rem 0;
+    }
 
     &__book-now {
         font-size: 2rem;
