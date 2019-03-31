@@ -15,6 +15,16 @@
     align-items: center;
     justify-content: center;
 
+    @media only screen and (max-width: $bp-smallest) {
+        // default value for the order of flex items is 0
+        // we set order to 1 for the search element it will change its order
+        // and it will be the last one
+        order: 1;
+        //flex-basis: 100% to make an element to take 100 percent of the available width
+        flex: 0 0 100%;
+        background-color: var(--color-grey-light-2);
+    }
+
     &__input {
         // input element doesn't inherit font-family and font-size from parent
         font-family: inherit;
@@ -199,7 +209,13 @@
 
         @media only screen and (max-width: $bp-medium) {
             justify-content: center;
-            padding: 2rem;
+            padding: 1.5rem 0.5rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
         }
     }
 
@@ -209,6 +225,13 @@
         margin-right: 2rem;
         // currentColor is color of current element or parent element
         fill: currentColor;
+
+        @media only screen and (max-width: $bp-small) {
+            margin-right: 0;
+            margin-bottom: 0.7rem;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
 }
 
@@ -250,6 +273,11 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;
+        }
     }
 
     &__stars {
@@ -285,17 +313,28 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
+
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 1.5rem;
+        }
     }
 
     &__rating-average {
         font-size: 2.25rem;
         font-weight: 300;
         margin-bottom: -3px;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+        }
     }
 
     &__rating-count {
         font-size: 0.8rem;
         text-transform: uppercase;
+        @media only screen and (max-width: $bp-small) {
+            font-size: 0.5rem;
+        }
     }
 }
 
@@ -381,17 +420,19 @@
         margin-right: 0.7rem;
 
         //older browsers
-        // background-image: url("../img/chevron-thin-right.svg");
-        // background-size: cover;
+        background-image: url("../img/chevron-thin-right.svg");
+        background-size: cover;
 
         //Never browsers - masks
-        background-color: var(--color-primary);
-        -webkit-mask-image: url("../img/chevron-thin-right.svg");
-        -webkit-mask-size: cover;
-
-        // for future when all browsers start implementing mask
-        mask-image: url("../img/chevron-thin-right.svg");
-        mask-size: cover;
+        @supports (-webkit-mask-image: url()) and (mask-image: url()) {
+            background-color: var(--color-primary);
+            -webkit-mask-image: url("../img/chevron-thin-right.svg");
+            -webkit-mask-size: cover;
+            // for future when all browsers start implementing mask
+            mask-image: url("../img/chevron-thin-right.svg");
+            mask-size: cover;
+            background-image: none;
+        }
     }
 }
 
@@ -441,6 +482,10 @@
     @media only screen and (max-width: $bp-large) {
         padding: 2rem;
         margin-right: 3rem;
+    }
+    @media only screen and (max-width: $bp-small) {
+        width: 100%;
+        margin-right: 0;
     }
 
     &__text {
